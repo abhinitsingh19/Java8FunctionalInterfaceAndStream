@@ -11,6 +11,8 @@ public class TestStreamRemoveDuplicates
 	{
 		List<Integer> intList = Arrays.asList(10,10,20,20,30,40,50,60);
 		
+		List<String> strList = Arrays.asList("Abhinit","Abhishek","Aarush","prabhat","Rahul","Nitin");
+		
 		OptionalDouble average = intList.stream().mapToInt(i->i*i).filter(i->i>500).average();
 		if(average.isPresent())
 		{
@@ -20,6 +22,10 @@ public class TestStreamRemoveDuplicates
 		//removing duplicate from list of integers.
 		
 		intList.stream().distinct().forEach(System.out::println);
+		
+		//filter names which start with letter 'A' and print them after conversion to lower case
+		
+		strList.stream().filter(s->s.startsWith("A")).map(s->s.toLowerCase()).forEach(System.out::println);
 		
 		
 	}
